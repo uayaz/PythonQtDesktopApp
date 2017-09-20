@@ -1,3 +1,4 @@
+#pip install reportlab
 from reportlab.pdfgen import canvas
 
 c = canvas.Canvas("report.pdf")
