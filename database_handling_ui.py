@@ -1,15 +1,29 @@
 import sys
-from PyQt4 import QtCore, QtGui, QtSql
-from Yusuf import sportsconnection
+from PyQt4 import QtCore, QtGui, QtSql, uic
+import sportsconnection
+
+form_class = uic.loadUiType("untitled.ui")[0]                 # Load the UI
+class MyWindowClass(QtGui.QMainWindow, form_class):
+    def __init__(self, parent=None):
+        QtGui.QMainWindow.__init__(self, parent)
+        self.setupUi(self)
+        self.pushButton(self.pushButton)  # Bind the event handlers
+
+
+
+app = QtGui.QApplication(sys.argv)
+myWindow = MyWindowClass(None)
+myWindow.show()
+app.exec_()
 
 
 def initializeModel(model):
-    model.setTable('sportsmen')
+    model.setTable('GroupNames')
     model.setEditStrategy(QtSql.QSqlTableModel.OnFieldChange)
     model.select()
     model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
     model.setHeaderData(1, QtCore.Qt.Horizontal, "First name")
-    model.setHeaderData(2, QtCore.Qt.Horizontal, "Last name")
+    # model.setHeaderData(2, QtCore.Qt.Horizontal, "Last name")
 
 def createView(title, model):
     view = QtGui.QTableView()
@@ -18,13 +32,16 @@ def createView(title, model):
     return view
 
 
-def addrow():
+
+def addrow(self):
     print(model.rowCount())
-    # ret = model.insertRows(model.rowCount(), 1)
+    ret = model.insertRows(model.rowCount(), 1)
     # sportsconnection.addNewRow(name='Yusuf',surname='Unlu')
     sportsconnection.addNewRow(id=123,name='denemename',surname='denemsurname')
     # model.submitAll();
     # print(ret)
+    # model.itemData(self,)
+    model.record(2)
 
 
 def findrow(i):
