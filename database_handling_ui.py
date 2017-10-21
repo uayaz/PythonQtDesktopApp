@@ -1,6 +1,6 @@
 import sys
 from PyQt4 import QtCore, QtGui, QtSql, uic
-import sportsconnection
+import database_design
 
 form_class = uic.loadUiType("untitled.ui")[0]                 # Load the UI
 class MyWindowClass(QtGui.QMainWindow, form_class):
@@ -37,7 +37,7 @@ def addrow(self):
     print(model.rowCount())
     ret = model.insertRows(model.rowCount(), 1)
     # sportsconnection.addNewRow(name='Yusuf',surname='Unlu')
-    sportsconnection.addNewRow(id=123,name='denemename',surname='denemsurname')
+    database_design.addNewRow(id=123, name='denemename', surname='denemsurname')
     # model.submitAll();
     # print(ret)
     # model.itemData(self,)
@@ -51,7 +51,7 @@ def findrow(i):
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
     db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
-    db.setDatabaseName('sports.db')
+    db.setDatabaseName('transport.db')
     model = QtSql.QSqlTableModel()
     delrow = -1
     initializeModel(model)

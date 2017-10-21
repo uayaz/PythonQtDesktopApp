@@ -40,10 +40,11 @@ class Example(QWidget):
 
 
 def main():
+
     app = QApplication(sys.argv)
-    ex = Example()
-    ex.show()
-    app.exec_()
+    #ex = Example()
+    #ex.show()
+    #app.exec_()
 
 
 if __name__ == '__main__':
