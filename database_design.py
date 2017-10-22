@@ -1,5 +1,6 @@
 import sys
 import sqlite3
+# -*- coding: utf-8 -*-
 
 con = sqlite3.connect('transport.db')
 

@@ -1,4 +1,5 @@
 import sys
+# -*- coding: utf-8 -*-
 import database_design
 
 def add_city():
@@ -27,7 +28,7 @@ def add_drivers():
 
 
 def add_businness():
-    database_design.cursor.execute("INSERT INTO BUSINESS VALUES(NULL, 'X', 'Bursa', 'Izmir', 'Karpuz', '4000', '1600', '15.01.2017', '17.01.2017')")
+    database_design.cursor.execute("INSERT INTO BUSINESS VALUES(NULL, 'Meyve', 'Bursa', 'Izmir', 'Karpuz', '4000', '1600', '15.01.2017', '17.01.2017')")
     database_design.con.commit()
 
 
