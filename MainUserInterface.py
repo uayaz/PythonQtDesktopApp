@@ -2,6 +2,7 @@ import sys
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
+
 simge ='truck.jpg'
 class tabdemo(QTabWidget):
     def __init__(self, parent=None):
@@ -81,7 +82,10 @@ class tabdemo(QTabWidget):
 
 def main():
     app = QApplication(sys.argv)
+    w = 900
+    h = 600
     ex = tabdemo()
+    ex.resize(w, h)
     ex.show()
     sys.exit(app.exec_())
 
