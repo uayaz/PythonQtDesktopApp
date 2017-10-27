@@ -1,6 +1,10 @@
 import sys
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
+from PyQt4.QtSql import *
+import database_design
+import database_value_change
+
 
 
 simge ='truck.jpg'
@@ -34,6 +38,8 @@ class tabdemo(QTabWidget):
         layout = QFormLayout()
         layout.addRow("Name", QLineEdit())
         layout.addRow("Address", QLineEdit())
+        layout.addRow("X", QTableView())
+        layout.addWidget(QRadioButton())
         self.setTabText(0, "Main Window")
         self.tab1.setLayout(layout)
 
@@ -73,10 +79,14 @@ class tabdemo(QTabWidget):
         self.tab5.setLayout(layout)
 
     def tab6UI(self):
-        layout = QHBoxLayout()
-        layout.addWidget(QLabel("subjects"))
-        layout.addWidget(QCheckBox("Physics"))
-        layout.addWidget(QCheckBox("Maths"))
+        layout = QFormLayout()
+        layout.addRow("Truck Name", QLineEdit())
+        layout.addRow("Truck Plate", QLineEdit())
+        layout.addRow("Truck Capacity",QLineEdit())
+        layout.addRow("Truck Features", QLineEdit())
+        layout.addWidget(QPushButton("Add"))
+        layout.addWidget(QTableView())
+        layout.addWidget(QPushButton("Delete"))
         self.setTabText(5, "Add New Trucks")
         self.tab6.setLayout(layout)
 
