@@ -1,5 +1,9 @@
 import sys
-from PyQt4 import QtCore, QtGui, QtSql, uic
+from PyQt4.QtGui import *
+from PyQt4.QtCore import *
+from PyQt4.uic import *
+
+
 import database_design
 
 form_class = uic.loadUiType("untitled.ui")[0]                 # Load the UI

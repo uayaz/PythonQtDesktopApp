@@ -1,17 +1,21 @@
 import sys
-from PyQt4.QtCore import *
+import PyQt4
+from PyQt4 import QtGui
+from PyQt4 import QtCore
 from PyQt4.QtGui import *
+from PyQt4.QtCore import *
 from PyQt4.QtSql import *
+#from PyQt4 import QtGui
+
 import database_design
 import database_value_change
-
 
 
 simge ='truck.jpg'
 class tabdemo(QTabWidget):
     def __init__(self, parent=None):
         super(tabdemo, self).__init__(parent)
-        self.tab1 = QWidget()
+        self.tab1 = QWidget(self)
         self.tab2 = QWidget()
         self.tab3 = QWidget()
         self.tab4 = QWidget()
@@ -36,45 +40,64 @@ class tabdemo(QTabWidget):
 
     def tab1UI(self):
         layout = QFormLayout()
-        layout.addRow("Name", QLineEdit())
+
+
+
         layout.addRow("Address", QLineEdit())
         layout.addRow("X", QTableView())
         layout.addWidget(QRadioButton())
+        btn = QtGui.QPushButton("Quit")
+        btn.resize(100,100)
+        btn.clicked.connect(QtCore.QCoreApplication.instance().quit)
+        layout.addWidget(btn)
+
+
         self.setTabText(0, "Main Window")
         self.tab1.setLayout(layout)
 
     def tab2UI(self):
         layout = QFormLayout()
-        sex = QHBoxLayout()
-        sex.addWidget(QRadioButton("Male"))
-        sex.addWidget(QRadioButton("Female"))
-        layout.addRow(QLabel("Sex"), sex)
-        layout.addRow("Date of Birth", QLineEdit())
+        layout.addRow("City", QLineEdit())
+        layout.addWidget(QPushButton("Add"))
+        layout.addWidget(QTableView())
+        layout.addWidget(QPushButton("Delete"))
         self.setTabText(1, "Add New Cities")
         self.tab2.setLayout(layout)
 
     def tab3UI(self):
-        layout = QHBoxLayout()
-        layout.addWidget(QLabel("subjects"))
-        layout.addWidget(QCheckBox("Physics"))
-        layout.addWidget(QCheckBox("Maths"))
+        layout = QFormLayout()
+        layout.addRow("Company Name",QLineEdit())
+        layout.addRow("Company Contact", QLineEdit())
+        layout.addRow("Company City",QLineEdit())
+        layout.addRow("Company Phone", QLineEdit())
+        layout.addWidget(QPushButton("Add"))
+        layout.addWidget(QTableView())
+        layout.addWidget(QPushButton("Delete"))
         self.setTabText(2, "Add New Companies")
         self.tab3.setLayout(layout)
 
     def tab4UI(self):
         layout = QFormLayout()
-        layout.addRow("Name", QLineEdit())
-        layout.addRow("Address", QLineEdit())
+        layout.addRow("Driver Name",QLineEdit())
+        layout.addRow("Driver Address", QLineEdit())
+        layout.addRow("Driver City",QLineEdit())
+        layout.addRow("Driver Phone", QLineEdit())
+        layout.addWidget(QPushButton("Add"))
+        layout.addWidget(QTableView())
+        layout.addWidget(QPushButton("Delete"))
         self.setTabText(3, "Add New Drivers")
         self.tab4.setLayout(layout)
 
     def tab5UI(self):
         layout = QFormLayout()
-        sex = QHBoxLayout()
-        sex.addWidget(QRadioButton("Male"))
-        sex.addWidget(QRadioButton("Female"))
-        layout.addRow(QLabel("Sex"), sex)
-        layout.addRow("Date of Birth", QLineEdit())
+        #sex = QHBoxLayout()
+        #sex.addWidget(QRadioButton("Male"))
+        #sex.addWidget(QRadioButton("Female"))
+        layout.addRow("Goods Name",QLineEdit())
+        layout.addRow("Goods Features", QLineEdit())
+        layout.addWidget(QPushButton("Add"))
+        layout.addWidget(QTableView())
+        layout.addWidget(QPushButton("Delete"))
         self.setTabText(4, "Add New Goods")
         self.tab5.setLayout(layout)
 
